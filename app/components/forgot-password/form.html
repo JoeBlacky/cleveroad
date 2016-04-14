@@ -1,0 +1,23 @@
+<div class="striped-bg form forgot-pass-form" data-ng-controller="FormController as form">
+	<form name="forgotPassForm" class="itm striped-inner form" novalidate
+		data-ng-submit="forgotPassForm.$valid">
+		<legend>{{forgotPassTitle}}</legend>
+		<fieldset>
+			<label for="user-email">{{emailLabel}}</label>
+			<input id="user-email" type="email" placeholder="Enter ur email" name="uEmail" required
+				data-ng-model="user.email"
+			></input>
+		</fieldset>
+		<fieldset data-ng-show="forgotPassForm.$submitted || forgotPassForm.uEmail.$touched">
+			<label for="user-email" class="msg error"
+				data-ng-show="forgotPassForm.uEmail.$error.required"
+				data-ng-class="active"
+			>{{message.fieldEmpty}}</label>
+		  <label for="user-email" class="msg error"
+		  	data-ng-show="forgotPassForm.uEmail.$error.email"
+	  	>{{message.emailInvalid}}</label>
+		</fieldset>
+		<input type="submit" value="Remind me!" class="btn"></input>
+		<a href class="itm link success" back-link>Back</a>
+	</form>
+</div>

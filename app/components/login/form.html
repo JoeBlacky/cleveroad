@@ -1,0 +1,38 @@
+<div class="striped-bg form login-form" data-ng-controller="FormController as form">
+	<form name="authForm" class="striped-inner form" novalidate data-ng-submit="authForm.$valid">
+		<legend>Are u ready for awesome?</legend>
+		<fieldset>
+			<label for="user-email">Email</label>
+			<input id="user-email" type="email" placeholder="Enter ur email" name="uEmail" required
+				data-ng-model="user.email"
+			></input>
+		</fieldset>
+		<fieldset data-ng-show="authForm.$submitted || authForm.uEmail.$touched">
+			<label for="user-email" class="msg error"
+				data-ng-show="authForm.uEmail.$error.required"
+				data-ng-class="active"
+			>{{message.fieldEmpty}}</label>
+		  <label for="user-email" class="msg error" data-ng-show="authForm.uEmail.$error.email">{{message.emailInvalid}}</label>
+		</fieldset>
+		<fieldset>
+			<label for="user-pass">Password</label>
+			<input id="user-pass" type="password" placeholder="Enter ur password" name="uPass" required
+				data-ng-model="user.pass"
+				data-ng-minlength="6"
+				data-ng-maxlength="16"
+				data-ng-pattern="/[a-zA-Z0-9]/"
+			></input>
+		</fieldset>
+		<fieldset data-ng-show="authForm.$submitted || authForm.uPass.$touched">
+		  <label for="user-pass" class="msg error" data-ng-show="authForm.uPass.$error.required">{{message.fieldEmpty}}</label>
+		  <label for="user-pass" class="msg error" data-ng-show="authForm.uPass.$error.minlength || authForm.uPass.$error.maxlength">{{message.passLength}}</label>
+		  <label for="user-pass" class="msg error" data-ng-show="authForm.uPass.$error.pattern">{{message.passPattern}}</label>
+		</fieldset>
+		<fieldset class="cstm-check">
+			<input id="user-remember" type="checkbox" checked></input>
+			<label for="user-remember">Remember me?</label>
+		</fieldset>
+		<input type="submit" value="Sign in" class="btn"></input>
+		<a href="/uforgotpass" class="link error">Forgot password?</a>
+	</form>
+</div>

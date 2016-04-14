@@ -1,0 +1,41 @@
+/* ======================================================================================= */
+	.product{
+		&-image{
+			margin: 0 0 $mainIndent*.75;
+			padding: 0 0 $mainIndent*.5;
+			border-bottom: 1px solid $borderColor;
+		}
+		&-name{
+			height: 48px;
+			margin: 0 0 $mainIndent*.5;
+			font: 20px/24px $primaryFont;
+			overflow: hidden;
+		}
+		&-price-box{
+			height: 36px;
+			span{
+				display: block;
+			}
+		}
+		&-price,
+		&-special-price{
+			color: $successColor;
+		}
+		&-description{
+			height: 20px;
+			overflow: hidden;
+		}
+		.sale{
+			.product-price{
+				text-decoration: line-through;
+				color: inherit;
+				font-size: 12px;
+			}
+		}
+	}
+	.load-more{
+		display: block;
+		width: auto;
+		margin: 0 auto;
+	}
+/* ======================================================================================= */

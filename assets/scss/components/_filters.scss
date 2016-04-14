@@ -1,0 +1,27 @@
+.filters{
+	margin: 0 0 $mainIndent;
+	.title{
+		margin: 0 0 $mainIndent*.75;
+	}
+	.sub-title{
+		margin: 0 0 $mainIndent*.5;
+		font-size: 18px;
+	}
+	&-box{
+		padding: 0 $mainIndent 0 0;
+		@extend %inline-block-top;
+	}
+	.selects{
+		width: 100%;
+		max-width: 200px;
+		font-size: 0;
+		label{
+			width: 35%;
+			margin: 0;
+			font-size: 14px;
+		}
+		select{
+			width: 65%;
+		}
+	}
+}

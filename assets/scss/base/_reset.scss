@@ -1,0 +1,36 @@
+html, body, div, span, b, input, form, section, legend, fieldset, label, ul, ol, li,
+textarea, select, blockquote, cite, a, dl, dd, dt, nav, header, footer, section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	user-select: none;
+	box-sizing: border-box;
+}
+input{
+	vertical-align: middle;
+	border: 0;
+	outline: 0;
+	appearance: none;
+}
+select{
+	-moz-appearance: none;
+}
+a{
+	text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5{
+	margin: 0 0 20px;
+	font-weight: 400;
+}
+ul,
+ol{
+	list-style: none;
+}

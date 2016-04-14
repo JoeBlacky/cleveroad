@@ -1,0 +1,22 @@
+.footer{
+	padding: $mainIndent;
+	background: #171717;
+	color: #FFF;
+	font-size: 0;
+	line-height: 20px;
+	.itm{
+		width: 50%;
+		font-size: 14px;
+	}
+	.dev-block{
+		text-align: right;
+	}
+	.icn{
+		font-style: normal;
+		&::before{
+			color: $errorColor;
+			line-height: 20px;
+			animation: pulse $slow-speed*2 infinite;
+		}
+	}
+}

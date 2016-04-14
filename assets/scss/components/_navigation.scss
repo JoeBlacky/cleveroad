@@ -1,0 +1,20 @@
+$nav: '.main-nav';
+/* ======================================================================================= */
+	#{$nav}{
+		width: 100%;
+		margin: 0 0 0 -150px;
+		padding: 0 0 0 150px;
+		text-align: right;
+		font-size: 16px;
+		.link{
+			padding: $mainIndent*.25;
+			margin: 0 0 0 $mainIndent*.5;
+			color: #FFF;
+			text-transform: uppercase;
+			&.active{
+				color: $secondaryColor;
+				border-color: $secondaryColor;
+			}
+		}
+	}
+/* ======================================================================================= */

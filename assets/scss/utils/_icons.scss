@@ -1,0 +1,59 @@
+/* Icons ================================================================================= */
+	#{$iconClass}{
+		&::before{
+			font-family: $iconsFont;
+			@extend %transition-normal-speed;
+			@extend %inline-block-middle;
+		}
+		&.key{
+			&::before{
+				content: '\E801';
+			}
+		}
+		&.user{
+			&::before{
+				content: '\E800';
+			}
+		}
+		&.check{
+			&::before{
+				content: '\E802';
+			}
+		}
+		&.chart{
+			&::before{
+				content: '\E803';
+			}
+		}
+		&.mail{
+			&::before{
+				content: '\E804';
+			}
+		}
+		&.tag{
+			&::before{
+				content: '\E805';
+			}
+		}
+		&.tools{
+			&::before{
+				content: '\E806';
+			}
+		}
+		&.run{
+			&::before{
+				content: '\E807';
+			}
+		}
+		&.phone{
+			&::before{
+				content: '\E808';
+			}
+		}
+		&.heart{
+			&::before{
+				content: '\E809';
+			}
+		}
+	}
+/* ======================================================================================= */

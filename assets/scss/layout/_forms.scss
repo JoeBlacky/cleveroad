@@ -1,0 +1,85 @@
+	$inputHeight: 40px;
+	$inputBorder: 2px;
+	$inputBackground: #FFF;
+/* Common ================================================================================ */
+	input,
+	select,
+	textarea{
+		display: block;
+		width: 100%;
+		height: $inputHeight;
+		padding: $inputHeight*.25 0;
+		font-size: 16px;
+		font-family: $primaryFont;
+		line-height: $inputHeight*.5;
+		color: #252525;
+		border: 0;
+		border-bottom: $inputBorder solid $borderColor;
+		background: $inputBackground;
+		border-radius: 0;
+		@extend %transition-fast-speed;
+		&:focus{
+			border-color: $attentionColor;
+		}
+		&[type="checkbox"]{
+			height: auto;
+		}
+	}
+	label{
+		display: inline-block;
+		margin: 0 0 $mainIndent*.25;
+		font-size: 14px;
+		cursor: pointer;
+	}
+	fieldset,
+	legend{
+		margin: 0 0 $mainIndent;
+	}
+	legend{
+		width: 100%;
+		padding: 0 0 $mainIndent*.5;
+		border-bottom: 1px solid #000;
+		text-transform: uppercase;
+		font-size: 20px;
+		text-align: center;
+	}
+	textarea{
+		width: 100%;
+		height: auto;
+		resize: none;
+	}
+	.ng-touched{
+		&.ng-invalid{
+			border-color: $errorColor;
+		}
+		&.ng-valid{
+			border-color: $successColor;
+		}
+	}
+	.ng-submitted{
+		.ng-invalid{
+			border-color: $errorColor;
+		}
+	}
+	form{
+	  width: 100%;
+	  padding: $mainIndent*.75;
+	  background: #FFF;
+	  text-align: left;
+	  color: #252525;
+	}
+	.form{
+		margin: 0 auto;
+	}
+	.login-form{
+  	max-width: $minWidth;
+  	.btn{
+  		width: 100%;
+  		margin: 0 0 $mainIndent;
+  	}
+  }
+  .forgot-pass-form{
+  	max-width: $minWidth*2;
+  }
+/* Media Queries ========================================================================= */
+/* ======================================================================================= */

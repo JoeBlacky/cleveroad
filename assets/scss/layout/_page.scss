@@ -1,0 +1,237 @@
+/* Common ================================================================================ */
+  html,
+  body{
+    height: 100%;
+  }
+  body{
+    position: relative;
+    min-height: 100%;
+    color: #333;
+    background: #000 url(../img/test-project-bg.jpg) no-repeat center center / cover;
+    background-attachment: fixed;
+    font: 16px/1.3 $primaryFont;
+  }
+  img{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+  a{
+    @extend %transition-fast-speed;
+  }
+  .mw{
+    width: 100%;
+    max-width: $mainWidth;
+    margin: 0 auto;
+  }
+  .page{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: $minWidth;
+    &-title{
+      margin: 0 0 $mainIndent;
+    }
+    &-content{
+      margin: $mainIndent 0;
+    }
+  }
+/* Helper Classes ======================================================================== */
+  .itm{ // Inline block element
+    @extend %inline-block-middle;
+  }
+  .tlg{ // Text large
+    font: 50px/1.1 $primaryFont;
+  }
+  .telg{ // Text extra large
+    font: 700 100px/1 $primaryFont;
+  }
+  .tcenter{ // Text align center
+    text-align: center;
+  }
+  .tleft{ // Text align left
+    text-align: left;
+  }
+  .ttl{ // Title
+    padding: 0 0 $mainIndent;
+    border-bottom: 1px solid $borderColor;
+    font-size: 42px;
+  }
+  $customCheckboxWidth: 20px;
+  .cstm-check{ // Custom checkboxes
+      [type="checkbox"]{
+        display: none;
+        &:checked{
+          + label{
+            &::before{
+              border-color: $secondaryColor;
+            }
+            &::after{
+              transform: scale(1);
+              @extend %visible;
+            }
+          }
+        }
+      }
+      label{
+        position: relative;
+        padding: 0 0 0 $customCheckboxWidth + $mainIndent*.25;
+        line-height: $customCheckboxWidth;
+        &::before,
+        &::after{
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: $customCheckboxWidth;
+          height: $customCheckboxWidth;
+          @extend %transition-fast-speed;
+        }
+        &::before{
+          content: '';
+          background: #FFF;
+          border: 1px solid #CCC;
+          box-sizing: border-box;
+        }
+        &::after{
+          content: '\E802';
+          text-align: center;
+          font: ($customCheckboxWidth*.5)/#{$customCheckboxWidth} $iconsFont;
+          color: $secondaryColor;
+          transform: scale(0);
+          @extend %hidden;
+        }
+      }
+  }
+  .btn{
+    width: auto;
+    height: 40px;
+    padding: $mainIndent*.5;
+    border: 0;
+    background: transparent;
+    color: $secondaryColor;
+    border: 1px solid $secondaryColor;
+    text-align: center;
+    font: 16px/20px $primaryFont;
+    text-transform: uppercase;
+    cursor: pointer;
+    @extend %transition-fast-speed;
+    @extend %inline-block-middle;
+  }
+  #{$notHandheld}{
+    .btn{
+      &:hover{
+        background: lighten($secondaryColor,10%);
+        color: #FFF;
+      }
+    }
+  }
+  .striped-bg{ // Block with striped border
+    padding: $mainIndent*.5;
+    box-shadow: 0 0 1px #000;
+    background: #CCC;
+    background: repeating-linear-gradient(
+      45deg,
+      $attentionColor,
+      $attentionColor 10px,
+      #171717 10px,
+      #171717 20px);
+    .striped-inner{
+      box-shadow: 0 0 3px #000 inset;
+      background: #FFF;
+    }
+  }
+  .link{ // Simple site links
+    color: $secondaryColor;
+    border-bottom: 1px solid transparent;
+    &:hover{
+      border-color: $secondaryColor;
+    }
+    &.attention{
+      color: $attentionColor;
+      &:hover{
+        border-color: $attentionColor;
+      }
+    }
+    &.error{
+      color: $errorColor;
+      &:hover{
+        border-color: $errorColor;
+      }
+    }
+    &.success{
+      color: $successColor;
+      &:hover{
+        border-color: $successColor;
+      }
+    }
+  }
+  ul{
+    &.cstm{
+      li{
+        &::before{
+          content: '-';
+          padding: 0 $mainIndent*.25 0 0;
+          @extend %inline-block-top;
+        }
+      }
+    }
+    &.checks{
+      li{
+        &::before{
+          content: '\E802';
+          font-family: $iconsFont;
+          color: $successColor;
+        }
+      }
+    }
+  }
+/* Messages ============================================================================== */
+  .msg{
+    display: block;
+    padding: $mainIndent*.5;
+    margin: 0 0 $mainIndent;
+    border-left: 2px solid #FFF;
+    text-transform: none;
+    font-size: 14px;
+    &.success{
+      border-color: $successColor;
+    }
+    &.error{
+      border-color: $errorColor;
+      background: rgba($errorColor,.1);
+    }
+  }
+  .form{
+    .msg{
+      margin: 0;
+    }
+  }
+/* Media Queries ========================================================================= */
+
+  @keyframes wooble{
+    16.65% {
+      transform: translateY(4px);
+    }
+    33.3% {
+      transform: translateY(-2px);
+    }
+    49.95% {
+      transform: translateY(2px);
+    }
+    66.6% {
+      transform: translateY(-1px);
+    }
+    83.25% {
+      transform: translateY(1px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes pulse{
+    50%{
+      transform: scale(1.1);
+    }
+  }
+/* ======================================================================================= */

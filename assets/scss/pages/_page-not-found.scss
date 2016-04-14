@@ -1,0 +1,16 @@
+$contentIdnent: $mainIndent*1.5;
+
+.page-not-found{
+	color: #FFF;
+	.title{ // Title
+		position: relative;
+		margin: 0;
+		padding: $contentIdnent*.5 $contentIdnent;
+		background: $attentionColor;
+		color: #252525;
+	}
+	.content{ // Content box
+		padding: $contentIdnent;
+		background: #252525;
+	}
+}

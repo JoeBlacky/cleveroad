@@ -1,0 +1,11 @@
+/* Mixins ================================================================================ */
+	@mixin inline-block($align){
+		display: inline-block;
+		vertical-align: $align;
+	}
+	@mixin transition($duration){
+		-webkit-transition: all $duration linear;
+		-ms-transition: all $duration linear;
+		transition: all $duration linear;
+	}
+/* ======================================================================================= */

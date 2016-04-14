@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html data-ng-app="store">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Cleveroad" />
+	<meta name="keywords" content="cleveroad, angular, js, angular.js, admin panel" />
+	<meta name="robots" content="INDEX,FOLLOW" />
+	<meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" />
+	<base href="/">
+	<title>Cleveroad</title>
+
+	<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css" media="all" />
+	<script src="assets/js/min/angular.min.js"></script>
+	<script src="assets/js/min/angular-animate.min.js"></script>
+	<script src="assets/js/min/angular-route.min.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/page.js"></script>
+	<script src="app/routes.js"></script>
+	<script src="app/users.js"></script>
+	<script src="app/products.js"></script>
+</head>
+<body data-ng-controller="PageController">
+	<div class="mw page {{pageClass}}">
+		<project-header></project-header>
+		<section class="page-content" ng-view></section>
+		<project-footer></project-footer>
+	</div>
+</body>
+</html>
