@@ -1,0 +1,25 @@
+.usettings{
+	.admin-box{
+		> img{
+			display: none;
+		}
+		.content{
+			position: static;
+		}
+	}
+	[href="/user-settings"]{
+		display: none;
+	}
+
+}
+/* Media Queries ========================================================================= */
+  @media screen and (max-width: 500px){
+  	.usettings{
+  		.grid{
+				&-itm{
+					width: 100%;
+				}
+			}
+  	}
+  }
+ /* ======================================================================================= */

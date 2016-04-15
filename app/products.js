@@ -4,66 +4,34 @@
 
 	app.controller('ProductsController', ['$http', '$scope', function($http, $scope){
 		$scope.products = [];
+    $scope.url = 'app/fake-db/products.json';
 
-		$http.get('app/products.json').success(function(data){
+		$http.get($scope.url).success(function(data){
 			$scope.products = data;
 		}).error(function(status){
-      throw "Whoops, looks like we have no data from" + url;
+      throw "Whoops, looks like we have no data from" + $scope.url;
     });
 
 		$scope.viewLimit = 4;
-		$scope.viewMore = function(num){
-			$scope.viewLimit += num;
-		}
-		$scope.nameLimit = 30;
-		$scope.descending = true;
 
-   	$scope.filters = {
-      query: "",
-      tags: [
-        {
-          label: "Punch",
-          selected: false
-        },
-        {
-          label: "Orange",
-          selected: false
-        },
-        {
-          label: "Chocolate",
-          selected: false
-        }
-      ]
-    }
+		$scope.nameLimit = 30;
+
+    $scope.viewMore = function(num){
+      $scope.viewLimit += num;
+    };
 	}]);
 
-	/*app.filter('productsFilter', function(){
-		return function (items, filters){
-			var filtered = [];
-      angular.forEach(items, function (item) {
-        var selectedTags = 0;
-        var tagsMatched = 0;
-        angular.forEach(filters.tags, function (tag) {
-          if (tag.selected) {
-            selectedTags += 1;
-            if (item.tags.indexOf(tag.label) > -1) {
-              tagsMatched += 1;
-            }
-          };
-        });
-        var matchAnyTag = selectedTags == 0 || tagsMatched > 0;
-        if (matchAnyTag) {
-          filtered.push(item);
-        }
-      });
-      return filtered;
-		}
-	});*/
+  app.controller('ProductDetailController', ['$scope', '$routeParams', '$http',
+  function($scope, $routeParams, $http) {
+    $http.get('app/fake-db/products/' + $routeParams.productId + '.json').success(function(data) {
+      $scope.product = data;
+    });
+  }]);
 
   app.directive('productsList', function() {
     return {
       restrict: 'E',
-      templateUrl: 'app/shared/productsList/view.html'
+      templateUrl: 'app/shared/product/list/view.html'
     };
   });
 

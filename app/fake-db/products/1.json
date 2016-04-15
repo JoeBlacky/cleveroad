@@ -1,0 +1,11 @@
+[
+	{
+		"id": 1,
+		"name": "Delicious Whey Protein",
+		"price": 11.99,
+		"specialPrice": 9.99,
+		"onSale": true,
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae risus sed est venenatis condimentum ut vitae augue. Donec a libero vitae mi pulvinar ultrices.",
+		"primaryImage": "assets/img/products/delicious_mhey_protein.jpg"
+	}
+]

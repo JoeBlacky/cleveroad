@@ -1,18 +1,15 @@
 /* ======================================================================================= */
+	/* Core styles for product*/
 	.product{
 		&-image{
-			margin: 0 0 $mainIndent*.75;
-			padding: 0 0 $mainIndent*.5;
-			border-bottom: 1px solid $borderColor;
+			border: 1px solid $borderColor;
 		}
 		&-name{
-			height: 48px;
 			margin: 0 0 $mainIndent*.5;
 			font: 20px/24px $primaryFont;
-			overflow: hidden;
 		}
 		&-price-box{
-			height: 36px;
+			margin: 0 0 $mainIndent*.5;
 			span{
 				display: block;
 			}
@@ -21,10 +18,6 @@
 		&-special-price{
 			color: $successColor;
 		}
-		&-description{
-			height: 20px;
-			overflow: hidden;
-		}
 		.sale{
 			.product-price{
 				text-decoration: line-through;
@@ -32,10 +25,54 @@
 				font-size: 12px;
 			}
 		}
+		.cstm-check{
+			margin: 0 0 $mainIndent*.5
+		}
 	}
+	/* View more button on product listing */
 	.load-more{
 		display: block;
 		width: auto;
 		margin: 0 auto;
+	}
+	/* Handles all filters */
+	.toolbar{
+		margin: 0 0 $mainIndent;
+	}
+	/* Normally used for changing view between grid and list, but here only switches to list */
+	.view-mode{
+		[type="checkbox"]{
+			display: none;
+			&:checked{
+				+ label{
+					&::before{
+						border-color: $secondaryColor;
+						color: #252525;
+					}
+				}
+			}
+		}
+		label{
+			margin: 0;
+			@extend %inline-block-top;
+			&::before{
+				display: block;
+				width: 30px;
+				height: 30px;
+				background: #FFF;
+				font: 20px/28px $iconsFont;
+				color: $borderColor;
+				text-align: center;
+				border: 1px solid $borderColor;
+				box-sizing: border-box;
+				@extend %transition-fast-speed;
+			}
+		}
+		.list{
+			&::before{
+				content: '\E805';
+				font-size: 25px;
+			}
+		}
 	}
 /* ======================================================================================= */

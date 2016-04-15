@@ -1,0 +1,47 @@
+<div class="products" data-ng-controller="ProductsController">
+	<div class="admin-box toolbar">
+		<div class="filters">
+			<h2 class="title">Filters</h2>
+			<div class="filters-box selects">
+				<h3 class="sub-title">Sort by</h3>
+				<ul>
+					<li>
+						<label for="show-items" class="itm">Show:</label>
+						<select id="show-items" class="itm" data-ng-model="viewLimit">
+							<option value="4">4</option>
+							<option value="8">8</option>
+							<option value="12">12</option>
+						</select>
+					</li>
+				</ul>
+			</div>
+			<div class="filters-box view-mode">
+				<h3 class="sub-title">View mode:</h3>
+				<input type="checkbox" id="view-list" data-ng-model="listView"></input><label for="view-list" class="list"></label>
+			</div>
+		</div>
+	</div>
+	<ul class="grid grid-view cols-4" data-ng-class="{'list-view': listView}">
+		<li class="grid-itm" data-ng-repeat="product in products | limitTo:viewLimit">
+			<div class="admin-box product">
+				<img class="product-image" data-ng-src="{{product.primaryImage}}" alt="{{product.name}}">
+				<div class="product-info">
+					<h2 class="product-name">{{product.name | limitTo: nameLimit}}{{product.name.length > nameLimit ? '&hellip;' : ''}}</h2>
+					<div class="product-price-box" data-ng-class="{true: 'sale'}[product.onSale == true]">
+						<span class="product-special-price" data-ng-show="product.onSale">{{product.specialPrice | currency}}</span>
+						<span class="product-price">{{product.price | currency}}</span>
+					</div>
+					<div class="product-description">
+						<p>{{product.description}}</p>
+					</div>
+					<div class="cstm-check">
+						<input id="product-id-{{product.id}}" type="checkbox"></input>
+						<label for="product-id-{{product.id}}">Check product</label>
+					</div>
+					<a href="/products/{{product.id}}" class="btn">About product</a>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<button data-ng-click="viewMore(viewLimit)" data-ng-hide="viewLimit >= products.length" class="btn load-more">View more</button>
+</div>

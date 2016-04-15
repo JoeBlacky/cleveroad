@@ -1,0 +1,101 @@
+<form name="userSettings" class="form" data-ng-submit="userSettings.$valid" data-ng-controller="FormController" novalidate>
+	<fieldset>
+		<label for="user-name">Name</label>
+		<input id="user-name" type="text" placeholder="Enter ur name" name="uName" required
+			data-ng-model="user.name"
+			data-ng-maxlength="255"
+			data-ng-pattern="/[a-zA-Z]/"
+		></input>
+	</fieldset>
+	<fieldset data-ng-show="userSettings.$submitted || userSettings.uName.$touched">
+		<label for="user-name" class="msg error"
+			data-ng-show="userSettings.uName.$error.required"
+			data-ng-class="active"
+		>{{message.fieldEmpty}}</label>
+	  <label for="user-name" class="msg error"
+	  	data-ng-show="userSettings.uName.$error.maxlength"
+  	>{{message.fieldLength}}</label>
+  	<label for="user-name" class="msg error"
+	  	data-ng-show="userSettings.uName.$error.pattern"
+  	>{{message.namePattern}}</label>
+	</fieldset>
+	<fieldset>
+		<label for="user-surname">Surname</label>
+		<input id="user-surname" type="text" placeholder="Enter ur surname" name="uSurname" required
+			data-ng-model="user.surname"
+			data-ng-maxlength="255"
+			data-ng-pattern="/[a-zA-Z]/"
+		></input>
+	</fieldset>
+	<fieldset data-ng-show="userSettings.$submitted || userSettings.uSurname.$touched">
+		<label for="user-surname" class="msg error"
+			data-ng-show="userSettings.uSurname.$error.required"
+			data-ng-class="active"
+		>{{message.fieldEmpty}}</label>
+	  <label for="user-surname" class="msg error"
+	  	data-ng-show="userSettings.uSurname.$error.maxlength"
+  	>{{message.fieldLength}}</label>
+  	<label for="user-surname" class="msg error"
+	  	data-ng-show="userSettings.uSurname.$error.pattern"
+  	>{{message.namePattern}}</label>
+	</fieldset>
+	<fieldset>
+		<label for="user-email">Email</label>
+		<input id="user-email" type="email" placeholder="Enter ur email" name="uEmail" required
+			data-ng-model="user.email"
+		></input>
+	</fieldset>
+	<fieldset data-ng-show="userSettings.$submitted || userSettings.uEmail.$touched">
+		<label for="user-email" class="msg error"
+			data-ng-show="userSettings.uEmail.$error.required"
+			data-ng-class="active"
+		>{{message.fieldEmpty}}</label>
+	  <label for="user-email" class="msg error" data-ng-show="userSettings.uEmail.$error.email">{{message.emailInvalid}}</label>
+	</fieldset>
+	<fieldset>
+		<label for="user-phone">Phone</label>
+		<input id="user-phone" type="text" placeholder="0123456789" name="uPhone" required
+			data-ng-model="user.phone"
+			data-ng-minlength="10"
+			data-ng-maxlength="10"
+			data-ng-pattern="/[0-9]/"
+		></input>
+	</fieldset>
+	<fieldset data-ng-show="userSettings.$submitted || userSettings.uPhone.$touched">
+		<label for="user-phone" class="msg error"
+			data-ng-show="userSettings.uPhone.$error.required"
+			data-ng-class="active"
+		>{{message.fieldEmpty}}</label>
+	  <label for="user-phone" class="msg error"
+	  	data-ng-show="userSettings.uPhone.$error.minlength || userSettings.uPhone.$error.maxlength"
+  	>{{message.phoneLength}}</label>
+  	<label for="user-phone" class="msg error"
+  		data-ng-show="userSettings.uPhone.$error.pattern"
+  		>{{message.phonePattern}}</label>
+	</fieldset>
+	<fieldset class="cstm-check">
+		<input id="user-remember" type="checkbox" data-ng-model="changePass"></input>
+		<label for="user-remember">Change password?</label>
+	</fieldset>
+	<fieldset data-ng-show="changePass">
+		<label for="user-pass">Password</label>
+		<input id="user-pass" type="password" placeholder="Enter ur password" name="uPass"
+			data-ng-model="user.pass"
+			data-ng-minlength="6"
+			data-ng-maxlength="16"
+			data-ng-pattern="/[a-zA-Z0-9]/"
+		></input>
+	</fieldset>
+	<fieldset data-ng-show="changePass">
+		<label for="user-pass2">Repeat Password</label>
+		<input id="user-pass2" type="password" placeholder="Repeat ur password" name="uPassRepeat"
+			data-ng-model="user.passRepeat"
+		></input>
+	</fieldset>
+	<fieldset data-ng-show="changePass && userSettings.$submitted || changePass && userSettings.uPass.$touched">
+	  <label for="user-pass" class="msg error" data-ng-show="userSettings.uPass.$error.required">{{message.fieldEmpty}}</label>
+	  <label for="user-pass" class="msg error" data-ng-show="userSettings.uPass.$error.minlength || userSettings.uPass.$error.maxlength">{{message.passLength}}</label>
+	  <label for="user-pass" class="msg error" data-ng-show="userSettings.uPass.$error.pattern">{{message.passPattern}}</label>
+	</fieldset>
+	<input type="submit" value="Save" class="btn"></input>
+</form>

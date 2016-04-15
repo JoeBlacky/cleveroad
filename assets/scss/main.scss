@@ -12,11 +12,12 @@
 
 @import 'components/header';
 @import 'components/navigation';
-@import 'components/adminPanel';
+@import 'components/grid';
 @import 'components/products';
 @import 'components/filters';
 @import 'components/footer';
 
-@import 'pages/login';
-@import 'pages/forgot-pass';
 @import 'pages/page-not-found';
+@import 'pages/dashboard';
+@import 'pages/user-settings';
+@import 'pages/product-detail';

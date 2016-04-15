@@ -7,7 +7,7 @@
     position: relative;
     min-height: 100%;
     color: #333;
-    background: #000 url(../img/test-project-bg.jpg) no-repeat center center / cover;
+    background: #000 url(../img/project_bg.jpg) no-repeat center center / cover;
     background-attachment: fixed;
     font: 16px/1.3 $primaryFont;
   }
@@ -15,6 +15,7 @@
     display: block;
     width: 100%;
     max-width: 100%;
+    height: auto;
   }
   a{
     @extend %transition-fast-speed;
@@ -25,17 +26,28 @@
     margin: 0 auto;
   }
   .page{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-width: $minWidth;
+    overflow: hidden; /* Need to find errors, than can remove */
     &-title{
       margin: 0 0 $mainIndent;
     }
     &-content{
       margin: $mainIndent 0;
     }
+    &.ng-enter{
+      animation: wooble $slow-speed;
+    }
+  }
+/* Main building block on admin panel ==================================================== */
+  .admin-box{
+    position: relative;
+    padding: $mainIndent*.75;
+    background: #FFF;
+    box-shadow: 0 0 0 1px $borderColor;
   }
 /* Helper Classes ======================================================================== */
   .itm{ // Inline block element
@@ -53,11 +65,11 @@
   .tleft{ // Text align left
     text-align: left;
   }
-  .ttl{ // Title
-    padding: 0 0 $mainIndent;
-    border-bottom: 1px solid $borderColor;
-    font-size: 42px;
+  .title{
+    margin: 0;
+    text-transform: uppercase;
   }
+/* Custom checkbox ======================================================================= */
   $customCheckboxWidth: 20px;
   .cstm-check{ // Custom checkboxes
       [type="checkbox"]{
@@ -103,6 +115,7 @@
         }
       }
   }
+/* Buttons =============================================================================== */
   .btn{
     width: auto;
     height: 40px;
@@ -126,7 +139,8 @@
       }
     }
   }
-  .striped-bg{ // Block with striped border
+/* Block with striped border ============================================================= */
+  .striped-bg{
     padding: $mainIndent*.5;
     box-shadow: 0 0 1px #000;
     background: #CCC;
@@ -141,7 +155,8 @@
       background: #FFF;
     }
   }
-  .link{ // Simple site links
+/* Simple site links ===================================================================== */
+  .link{
     color: $secondaryColor;
     border-bottom: 1px solid transparent;
     &:hover{
@@ -166,6 +181,7 @@
       }
     }
   }
+/* Custom ul ============================================================================= */
   ul{
     &.cstm{
       li{
@@ -182,6 +198,30 @@
           content: '\E802';
           font-family: $iconsFont;
           color: $successColor;
+        }
+      }
+    }
+  }
+/* Block with user information eg: name, email =========================================== */
+  .usr{
+    &-info{
+      dt{
+        margin: 0 0 $mainIndent*.25;
+        font-weight: 700;
+      }
+      dd{
+        margin: 0 0 $mainIndent;
+      }
+      .phone,
+      .user{
+        &::before{
+          vertical-align: top;
+        }
+      }
+      #{$iconClass}{
+        font-style: normal;
+        &::before{
+          margin: 0 $mainIndent*.25 0 0;
         }
       }
     }
@@ -208,30 +248,15 @@
     }
   }
 /* Media Queries ========================================================================= */
-
-  @keyframes wooble{
-    16.65% {
-      transform: translateY(4px);
+  @media screen and (max-width: $mainWidth){
+    body{
+      background: #000;
     }
-    33.3% {
-      transform: translateY(-2px);
+    .page{
+      padding: 0 $mainIndent;
     }
-    49.95% {
-      transform: translateY(2px);
-    }
-    66.6% {
-      transform: translateY(-1px);
-    }
-    83.25% {
-      transform: translateY(1px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-  @keyframes pulse{
-    50%{
-      transform: scale(1.1);
+    .btn{
+      font-size: 14px;
     }
   }
 /* ======================================================================================= */

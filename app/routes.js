@@ -1,20 +1,16 @@
 (function(){
 
-  var app = angular.module('routes', ['ngRoute']);
+  var app = angular.module('routes', ['ngRoute', 'ngAnimate']);
 
   app.config(function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/',{
         templateUrl: 'app/components/login/form.html',
-        controller: 'userLoginCrl'
-      }).
-      when('/ulogin', {
-        templateUrl: 'app/components/login/form.html',
-        controller: 'userLoginCrl'
+        controller: 'PageController'
       }).
       when('/uforgotpass', {
         templateUrl: 'app/components/forgot-password/form.html',
-        controller: 'userForgotpassCtrl'
+        controller: 'PageController'
       }).
       when('/dashboard', {
         templateUrl: 'app/components/dashboard/view.html',
@@ -24,47 +20,21 @@
         templateUrl: 'app/components/products/view.html',
         controller: 'PageController'
       }).
+      when('/products/:productId', {
+        templateUrl: 'app/shared/product/view.html',
+        controller: 'ProductDetailController'
+      }).
+      when('/user-settings', {
+        templateUrl: 'app/components/user/settings/view.html',
+        controller: 'PageController'
+      }).
       when('/404', {
         templateUrl: 'app/components/page-not-found/404.html',
-        controller: 'PageNotFoundController'
+        controller: 'PageController'
       }).
       otherwise({
         redirectTo: '/404'
       });
       $locationProvider.html5Mode(true);
-  });
-
-  app.directive('backLink', ['$window', function($window) {
-    return {
-      restrict: 'A',
-      link: function (scope, elem, attrs) {
-        elem.bind('click', function () {
-          $window.history.back();
-        });
-      }
-    };
-  }]);
-
-  app.directive('userDashboard', function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'app/components/dashboard/view.html'
-    };
-  });
-
-  app.controller('userLoginCrl', function($scope) {
-    $scope.pageClass = 'page-login';
-  });
-
-  app.controller('userForgotpassCtrl', function($scope) {
-    $scope.pageClass = 'page-forgot-pass';
-  });
-
-  app.controller('PageNotFoundController', function($scope) {
-    $scope.pageClass = 'page-not-found';
-  });
-
-  app.controller('adminController', function($scope) {
-    $scope.pageClass = 'page-admin';
   });
 })();

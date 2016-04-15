@@ -1,0 +1,19 @@
+<div class="admin-box" data-ng-controller="UserController as user">
+	<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+	<div class="content" data-ng-repeat="user in users">
+		<dl class="usr-info">
+			<dt>Signed as:</dt>
+			<dd>
+				<span class="itm icn user">{{user.name}}</span>
+			</dd>
+			<dt>Contact email:</dt>
+			<dd><a href="mailto:{{user.email}}" class="link icn mail">{{user.email}}</a></dd>
+			<dt>Contact phone:</dt>
+			<dd><a href="tel:{{user.phone}}" class="link icn phone">{{user.phone}}</a></dd>
+		</dl>
+		<div class="btn-set">
+			<a href="/"  class="btn">Logout</a>
+			<a href="/user-settings" class="btn">User settings</a>
+		</div>
+	</div>
+</div>

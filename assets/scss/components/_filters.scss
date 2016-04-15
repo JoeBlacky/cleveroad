@@ -1,5 +1,5 @@
+/* Filters block goes under product listing*/
 .filters{
-	margin: 0 0 $mainIndent;
 	.title{
 		margin: 0 0 $mainIndent*.75;
 	}
@@ -25,3 +25,17 @@
 		}
 	}
 }
+/* Media Queries ========================================================================= */
+  @media screen and (max-width: 400px){
+  	.filters{
+  		&-box{
+  			width: 100%;
+	  		padding: 0;
+	  		margin: 0 0 $mainIndent*.5;
+	  		&.selects{
+	  			max-width: 100%;
+	  		}
+  		}
+  	}
+  }
+ /* ======================================================================================= */

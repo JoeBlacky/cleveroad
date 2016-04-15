@@ -37,24 +37,6 @@
       "src": "elusive"
     },
     {
-      "uid": "875ab0f6d417223f6ec76ff7f0a4baed",
-      "css": "tag",
-      "code": 59397,
-      "src": "entypo"
-    },
-    {
-      "uid": "5040789d726273a910ac5b59e9d8227a",
-      "css": "pitch",
-      "code": 59398,
-      "src": "maki"
-    },
-    {
-      "uid": "6a7b9d4863bb7e6c79e9457a72d689b6",
-      "css": "tools",
-      "code": 59399,
-      "src": "entypo"
-    },
-    {
       "uid": "767fede84586366cd7d6c835be745454",
       "css": "mobile",
       "code": 59400,
@@ -65,6 +47,18 @@
       "css": "heart",
       "code": 59401,
       "src": "elusive"
+    },
+    {
+      "uid": "46cacfc5030a225f338323a3538a18e8",
+      "css": "th-large",
+      "code": 59398,
+      "src": "websymbols"
+    },
+    {
+      "uid": "559647a6f430b3aeadbecd67194451dd",
+      "css": "menu",
+      "code": 59397,
+      "src": "fontawesome"
     }
   ]
 }
