@@ -1,0 +1,36 @@
+/* Media Queries ========================================================================= */
+  @media screen and (max-width: $mainWidth){
+    .grid.dashboard-uinfo{
+      .grid-itm{
+        width: 50%;
+      }
+      .wide{
+        width: 100%;
+        .admin-box{
+          > img{
+            display: none;
+          }
+          .content{
+            position: static;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 700px){
+    .dashboard-uinfo{
+      .banner{
+        .title{
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 500px){
+    .grid.dashboard-uinfo{
+      .grid-itm{
+        width: 100%;
+      }
+    }
+  }
+/* ======================================================================================= */
