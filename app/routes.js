@@ -32,6 +32,10 @@
         templateUrl: 'app/components/page-not-found/404.html',
         controller: 'PageController'
       }).
+      when('/dev-review', {
+        templateUrl: 'app/components/dev-review/view.html',
+        controller: 'PageController'
+      }).
       otherwise({
         redirectTo: '/404'
       });

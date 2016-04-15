@@ -1,0 +1,28 @@
+.dev-review{
+	font-family: 'Times New Roman';
+	.sub-title{
+		text-transform: uppercase;
+	}
+	.task{
+		&-section{
+			margin: $mainIndent*2 0 0;
+			padding: 0 0 $mainIndent*2.5;
+			border-bottom: 1px solid #000;
+			&:first-of-type{
+				margin: 0;
+			}
+		}
+		&-notice{
+			padding: 0 0 0 $mainIndent;
+			border: 2px solid $borderColor;
+		}
+	}
+	ul{
+		li{
+			margin: 0 0 $mainIndent*.5;
+		}
+		ul{
+			padding: 0 0 0 $mainIndent;
+		}
+	}
+}

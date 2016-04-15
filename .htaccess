@@ -1,3 +1,5 @@
+AddType 'text/html; charset=utf-8' html
+
 RewriteEngine On
 Options FollowSymLinks
 
